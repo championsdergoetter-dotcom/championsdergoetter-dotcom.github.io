@@ -1,0 +1,205 @@
+/* Champions der Götter – Ortav. Reines CSS, keine externen Schriften oder Skripte. */
+:root {
+  --bg: #0b0a0a;
+  --bg-2: #14120f;
+  --panel: #1a1713;
+  --line: #3a3124;
+  --gold: #ecc46e;
+  --gold-hell: #fff0c4;
+  --gold-dunkel: #b8893a;
+  --text: #ece4d0;
+  --text-2: #b9b0a0;
+  --serif: "Palatino Linotype", "Book Antiqua", Palatino, "URW Palladio L", "P052", Georgia, serif;
+  --max: 1120px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--gold); text-underline-offset: 3px; }
+a:hover { color: var(--gold-hell); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.skip { position: absolute; left: -999px; top: 0; background: var(--gold); color: #000; padding: .5rem 1rem; z-index: 20; }
+.skip:focus { left: 1rem; }
+
+/* ---------- Kopfleiste ---------- */
+.kopf {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(11, 10, 10, .92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.kopf-innen {
+  max-width: var(--max); margin: 0 auto; padding: .55rem 16px;
+  display: flex; align-items: center; gap: 1.2rem;
+}
+.marke {
+  font-weight: bold; letter-spacing: .14em; text-transform: uppercase;
+  text-decoration: none; white-space: nowrap; font-size: .95rem;
+  background: linear-gradient(180deg, var(--gold-hell) 0%, var(--gold) 45%, var(--gold-dunkel) 60%, #f7dd96 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.kopf nav { overflow-x: auto; scrollbar-width: none; margin-left: auto; }
+.kopf nav::-webkit-scrollbar { display: none; }
+.kopf nav ul { display: flex; gap: 1.1rem; list-style: none; margin: 0; padding: 0; }
+.kopf nav a {
+  color: var(--text-2); text-decoration: none; white-space: nowrap;
+  font-size: .82rem; letter-spacing: .12em; text-transform: uppercase;
+}
+.kopf nav a:hover { color: var(--gold); }
+
+/* ---------- Titel ---------- */
+.titel { background: #000; border-bottom: 1px solid var(--line); }
+.titel img { width: 100%; max-width: 1600px; margin: 0 auto; }
+
+.einleitung { max-width: 760px; margin: 0 auto; padding: 3.2rem 16px 1rem; text-align: center; }
+.motto { font-style: italic; color: var(--text-2); margin: 0 0 1.4rem; }
+
+/* ---------- Überschriften ---------- */
+h1, h2, h3 { font-weight: bold; line-height: 1.2; }
+h1, h2 {
+  letter-spacing: .1em; text-transform: uppercase; text-align: center;
+  background: linear-gradient(180deg, var(--gold-hell) 0%, var(--gold) 42%, var(--gold-dunkel) 58%, #f7dd96 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+h1 { font-size: clamp(1.7rem, 5vw, 2.6rem); margin: 0 0 .4rem; }
+h2 { font-size: clamp(1.4rem, 4vw, 2rem); margin: 0; }
+h3 { color: var(--gold); font-size: 1.2rem; margin: 0 0 .35rem; letter-spacing: .03em; }
+
+.zier {
+  display: flex; align-items: center; justify-content: center; gap: .6rem;
+  margin: .9rem auto 1.6rem; max-width: 340px; color: var(--gold);
+}
+.zier::before, .zier::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+.zier::after { background: linear-gradient(90deg, var(--gold), transparent); }
+.zier span { width: 9px; height: 9px; background: var(--gold); transform: rotate(45deg); }
+
+/* ---------- Abschnitte ---------- */
+.abschnitt { padding: 3.6rem 16px; scroll-margin-top: 2.6rem; }
+.abschnitt:nth-of-type(even) { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.innen { max-width: var(--max); margin: 0 auto; }
+.lead { max-width: 720px; margin: 0 auto 2rem; text-align: center; color: var(--text-2); }
+.lead strong { color: var(--text); }
+
+/* ---------- Drei Wege ---------- */
+.wege { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
+.weg {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 6px;
+  padding: 1.6rem 1.4rem; display: flex; flex-direction: column;
+  position: relative;
+}
+.weg::before {
+  content: ""; position: absolute; inset: 0; border-radius: 6px; pointer-events: none;
+  background: linear-gradient(180deg, rgba(236,196,110,.08), transparent 40%);
+}
+.weg .art { font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dunkel); margin: 0 0 .3rem; }
+.weg h3 { font-size: 1.35rem; }
+.weg p { margin: .4rem 0; }
+.weg .klein { color: var(--text-2); font-size: .95rem; }
+.weg .knopf { margin-top: auto; }
+
+.knopf {
+  display: inline-block; margin-top: 1rem; padding: .65rem 1.2rem;
+  border: 1px solid var(--gold); border-radius: 3px;
+  color: var(--gold); text-decoration: none; text-align: center;
+  letter-spacing: .12em; text-transform: uppercase; font-size: .85rem;
+}
+.knopf:hover { background: var(--gold); color: #120f0a; }
+
+/* Platzhalter: noch vom Autor zu ergänzen (vor Veröffentlichung entfernen) */
+.offen {
+  display: inline-block; border: 1px dashed var(--gold); color: var(--gold);
+  background: rgba(236,196,110,.08); padding: .15rem .5rem; border-radius: 3px;
+  font-size: .85rem; font-style: italic;
+}
+
+/* ---------- Zeitleiste ---------- */
+.zeitleiste { list-style: none; margin: 0 auto; padding: 0; max-width: 820px; position: relative; }
+.zeitleiste::before {
+  content: ""; position: absolute; left: 11px; top: .4rem; bottom: .4rem; width: 2px;
+  background: linear-gradient(180deg, var(--gold), var(--gold-dunkel) 80%, transparent);
+}
+.zeitleiste > li { position: relative; padding: 0 0 2rem 2.6rem; }
+.zeitleiste > li::before {
+  content: ""; position: absolute; left: 5px; top: .45rem; width: 14px; height: 14px;
+  background: var(--bg); border: 2px solid var(--gold); transform: rotate(45deg);
+}
+.zeitleiste > li.spiel::before { background: var(--gold); }
+.zeitleiste .epoche { font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dunkel); margin: 0; }
+.zeitleiste h3 { margin: .1rem 0 .3rem; }
+.zeitleiste p { margin: .3rem 0; color: var(--text-2); }
+.marken { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .5rem; padding: 0; list-style: none; }
+.marken li {
+  font-size: .8rem; padding: .12rem .55rem; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--text); background: var(--panel);
+}
+.marken li.buch { border-color: #6d5a3a; }
+.marken li.serie { border-color: #3d5a7a; }
+.marken li.spiel { border-color: var(--gold); color: var(--gold); }
+.marken li.wip { border-style: dashed; color: var(--text-2); }
+.nebenstrang {
+  max-width: 820px; margin: .5rem auto 0; padding: 1rem 1.2rem;
+  border: 1px solid var(--line); border-radius: 6px; background: var(--panel); color: var(--text-2);
+}
+.nebenstrang strong { color: var(--text); }
+
+/* ---------- Galerien ---------- */
+.gruppe { margin: 0 0 1rem; text-align: center; color: var(--gold); letter-spacing: .14em; text-transform: uppercase; font-size: 1rem; }
+.gruppe + .lead { margin-bottom: 1.4rem; }
+.karten { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
+.karten.orte { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+.karte {
+  margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.karte a.bild { display: block; overflow: hidden; background: #000; }
+.karte img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top center; transition: transform .4s ease; }
+.karten.orte .karte img { aspect-ratio: 4 / 3; object-position: center; }
+.karte a.bild:hover img { transform: scale(1.04); }
+.karte figcaption { padding: .8rem .9rem 1rem; }
+.karte .rolle { display: block; font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dunkel); margin-bottom: .2rem; }
+.karte p { margin: 0; font-size: .95rem; color: var(--text-2); line-height: 1.5; }
+
+/* ---------- Wie das entsteht ---------- */
+.entstehung { max-width: 760px; margin: 0 auto; }
+.entstehung ul { padding-left: 1.2rem; }
+.entstehung li { margin: .4rem 0; }
+.entstehung li strong { color: var(--gold); }
+
+/* ---------- Fuß ---------- */
+.fuss { border-top: 1px solid var(--line); padding: 2.4rem 16px 3rem; text-align: center; color: var(--text-2); font-size: .92rem; }
+.fuss .kanaele { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem 1.4rem; list-style: none; padding: 0; margin: 0 0 1.2rem; }
+.fuss .kanaele a { letter-spacing: .1em; text-transform: uppercase; font-size: .85rem; }
+.fuss p { margin: .3rem 0; }
+
+/* ---------- Unterseiten (Impressum, Datenschutz) ---------- */
+.text-seite { max-width: 760px; margin: 0 auto; padding: 3rem 16px; }
+.text-seite h2 { text-align: left; font-size: 1.3rem; margin-top: 2rem; }
+
+@media (max-width: 640px) {
+  body { font-size: 1.02rem; }
+  .kopf-innen { gap: .8rem; }
+  .marke { font-size: .8rem; letter-spacing: .1em; }
+  .abschnitt { padding: 2.6rem 16px; }
+  .karten { grid-template-columns: repeat(2, 1fr); gap: .7rem; }
+  .karten.orte { grid-template-columns: 1fr; }
+  .karte figcaption { padding: .6rem .65rem .8rem; }
+  .karte p { font-size: .88rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .karte img { transition: none; }
+}
+
+/* Knopf ohne Ziel (Link folgt) */
+.knopf.aus { border-style: dashed; border-color: var(--line); color: var(--text-2); cursor: default; }
+.knopf.aus:hover { background: none; color: var(--text-2); }
