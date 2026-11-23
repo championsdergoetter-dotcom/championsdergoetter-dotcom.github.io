@@ -203,3 +203,41 @@ h3 { color: var(--gold); font-size: 1.2rem; margin: 0 0 .35rem; letter-spacing: 
 /* Knopf ohne Ziel (Link folgt) */
 .knopf.aus { border-style: dashed; border-color: var(--line); color: var(--text-2); cursor: default; }
 .knopf.aus:hover { background: none; color: var(--text-2); }
+
+/* ---------- Spiele-Seite ---------- */
+h2.links { text-align: left; }
+.art { font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dunkel); margin: 0 0 .3rem; }
+.spiel-kopf { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 2rem; align-items: center; margin-bottom: 3rem; }
+.spiel-kopf img { border: 1px solid var(--line); border-radius: 6px; width: 100%; }
+.spiel-kopf .klein { color: var(--text-2); font-size: .95rem; }
+.abzeichen { display: flex; flex-wrap: wrap; gap: .5rem; margin: .6rem 0 1rem; }
+.abzeichen span { font-size: .8rem; letter-spacing: .08em; padding: .15rem .65rem; border-radius: 999px; border: 1px solid var(--gold); color: var(--gold); }
+.knopf.voll { background: var(--gold); color: #120f0a; font-weight: bold; }
+.knopf.voll:hover { background: var(--gold-hell); }
+.plattformen { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
+.plattformen .knopf { margin-top: auto; }
+.hinweis-zeile { max-width: 820px; margin: 1.4rem auto 3rem; color: var(--text-2); font-size: .95rem; text-align: center; }
+.hinweis-zeile strong { color: var(--text); }
+.karten.bildschirme { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.karten.bildschirme .karte img { aspect-ratio: 9 / 16; }
+.zwei-spalten { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.roadmap { margin: 0; padding: 0; list-style: none; counter-reset: r; }
+.roadmap li { position: relative; padding: .5rem 0 .9rem 2.4rem; color: var(--text-2); }
+.roadmap li strong { color: var(--text); }
+.roadmap li::before {
+  counter-increment: r; content: counter(r); position: absolute; left: 0; top: .45rem;
+  width: 1.7rem; height: 1.7rem; border: 1px solid var(--gold); border-radius: 50%;
+  color: var(--gold); font-size: .85rem; display: grid; place-items: center;
+}
+.roadmap li.spaeter::before { border-style: dashed; color: var(--text-2); border-color: var(--text-2); }
+.verlauf { list-style: none; margin: 0; padding: 0; }
+.verlauf li { border-left: 2px solid var(--gold); padding: .2rem 0 1rem 1rem; }
+.verlauf .version { color: var(--gold); font-weight: bold; }
+.verlauf .datum { color: var(--text-2); font-size: .85rem; margin-left: .4rem; }
+.verlauf p { margin: .3rem 0 0; color: var(--text-2); }
+.spiele-zwei { display: grid; grid-template-columns: 1fr; gap: .8rem; margin: .4rem 0; }
+.spiele-zwei .eintrag { border-top: 1px solid var(--line); padding-top: .7rem; }
+.spiele-zwei .eintrag:first-child { border-top: 0; padding-top: 0; }
+@media (max-width: 760px) {
+  .spiel-kopf { grid-template-columns: 1fr; gap: 1.2rem; }
+}
